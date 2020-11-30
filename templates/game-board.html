@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Boggle{% endblock %}
+
+{% block header %}
+    <h2>Boggle</h2>
+{% endblock %}
+
+{% block content %}
+    {% for row in board %}
+        {% for char in row %}
+            {{char}}
+        {% endfor %}
+        <br>
+    {% endfor %}
+    <form action="/guess" method="post">
+        <label for="word"></label>
+        <input type="text" name="word" id="word" placeholder="Enter Word">
+        <button type="submit">Enter Word</button>
+    </form>
+    {% if get_flashed_messages() %}
+        {% for msg in get_flashed_messages() %}	 
+            <p><em>{{session['word']}}</em> is <strong>{{msg}}</strong></p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}  

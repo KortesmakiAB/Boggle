@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Boggle{% endblock %}
+
+{% block header %}
+    <h2>Boggle</h2>
+    <h3>The game I always lose because my wife always wins</h3>
+    <img src="" alt="Sad Face">
+{% endblock %}
+
+{% block content %}
+    <form action="/game-board">
+        <button type="submit">Begin Game</button>
+    </form>
+{% endblock %}  
