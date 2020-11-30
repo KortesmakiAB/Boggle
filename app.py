@@ -15,6 +15,9 @@ boggle_game = Boggle()
 def show_homepage():
     """Display landing page and button to begin game"""
 
+    session['score'] = 0
+    session['scored-words'] = []
+
     return render_template('index.html')
 
 @app.route('/game-board')
@@ -38,12 +41,34 @@ def check_guesses():
     guess = request.form.get('word')
     board = session['game-board']
     message = boggle_game.check_valid_word(board, guess)
-
     flash(message)
 
     session['word'] = guess
 
+    keeping_score(message, guess)
+
     return redirect('/game-board')
+
+def keeping_score(message, guess):
+    """TODO"""
+
+    if message == 'ok':
+        if guess not in session['scored-words']:
+            session_scored_words(guess)
+
+            score = session['score']
+            score += len(guess)
+            session['score'] = score
+        else:
+            flash(f"You already guessed {session['word']}")
+
+
+def session_scored_words(guess):
+    """TODO"""
+
+    scored_words = session['scored-words']
+    scored_words.append(guess)
+    session['scored-words'] = scored_words
 
 # def set_session(guess):
 #     session['word'] = ''

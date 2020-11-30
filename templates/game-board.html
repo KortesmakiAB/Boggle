@@ -18,6 +18,7 @@
         <input type="text" name="word" id="word" placeholder="Enter Word">
         <button type="submit">Enter Word</button>
     </form>
+    Current Score: {{session['score']}}
     {% if get_flashed_messages() %}
         {% for msg in get_flashed_messages() %}	 
             <p><em>{{session['word']}}</em> is <strong>{{msg}}</strong></p>
