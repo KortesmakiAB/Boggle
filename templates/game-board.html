@@ -13,15 +13,10 @@
         {% endfor %}
         <br>
     {% endfor %}
-    <form action="/guess" method="post">
+    <form id="word-form">
         <label for="word"></label>
-        <input type="text" name="word" id="word" placeholder="Enter Word">
+        <input type="text" name="word" id="word" placeholder="Enter Word" required>
         <button type="submit">Enter Word</button>
     </form>
-    Current Score: {{session['score']}}
-    {% if get_flashed_messages() %}
-        {% for msg in get_flashed_messages() %}	 
-            <p><em>{{session['word']}}</em> is <strong>{{msg}}</strong></p>
-        {% endfor %}
-    {% endif %}
-{% endblock %}  
+    <!-- Current Score: {{session['score']}} -->
+{% endblock %} 
