@@ -13,9 +13,13 @@
     </header>
     <main>
         {% block content %}{% endblock %}
+        <div id="stats">
+            <h4>High Score: {{session['high-score']}}</h4>
+            <h4>Number of Games Played: {{session['num-games']}}</h4>
+        </div>
         <div id="msg-area" class="hidden"></div>
         <div id="scored-words" class="hidden">
-            <h4>Your Scored Words:</h4>
+            <h4></h4>
             <ul>
             </ul>
         </div>
