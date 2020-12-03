@@ -13,20 +13,18 @@ boggle_game = Boggle()
 
 @app.route('/')
 def show_homepage():
-    """Display landing page and button to begin game"""
+    """Display landing page and button to begin game. Set session defaults."""
     
-    if not session.get('high-score'):
-        session['high-score'] = 0
+    session['high-score'] = session.get('high-score', 0)
         
-    if not session.get('num-games'):
-        session['num-games'] = 0
+    session['num-games'] = session.get('num-games', 0)
 
     return render_template('index.html')
 
 
 @app.route('/game-board')
 def handle_game_board():
-    """Display game board, TODO"""
+    """Display game board"""
     
     board = boggle_game.make_board()
     session['game-board'] = board
@@ -36,7 +34,7 @@ def handle_game_board():
 
 @app.route('/guess')
 def check_guesses():
-    """TODO"""
+    """Check if a word is a valid word in the dictionary and/or the boggle board", and respond with a message accordingly."""
     
     guess = request.args.get('word')
     board = session.get('game-board')
@@ -48,13 +46,15 @@ def check_guesses():
 
 @app.route('/play-again', methods=['POST'])
 def play_again():
-    """TODO"""
+    """
+    Update session with the high score. Update session with number of games played.
+    NB: JS is not using the return value. Return value could be anything.
+    """
     
+    current_high_score = session['high-score']
     score = request.json['score']
-    session['high-score'] = score
+    session['high-score'] = current_high_score if current_high_score > score else score
     
-    num_games = session.get('num-games', 0)
-    num_games += 1
-    session['num-games'] = num_games
+    session['num-games'] = session.get('num-games', 0) + 1
     
     return jsonify(session['high-score']) 
