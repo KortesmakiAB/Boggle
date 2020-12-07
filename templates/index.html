@@ -1,16 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Boggle{% endblock %}
-
-{% block header %}
-    <h2>Boggle</h2>
-    <h3>The game I always lose because my wife always wins</h3>
-    <!-- Image by Evgeni Tcherkasski from Pixabay  -->
-    <img src="/static/defeated.jpg" alt="Victory and Defeat">
-{% endblock %}
+<!-- Image by Evgeni Tcherkasski from Pixabay  -->
+<!-- <img src="/static/defeated_white.jpg" alt="Victory and Defeat"> -->
 
 {% block content %}
-    <form action="/game-board" id="begin-game">
-        <button type="submit">Begin Game</button>
-    </form>
+<form action="/game-board" id="begin-game">
+    <button type="submit">Begin Game</button>
+</form>
 {% endblock %}  

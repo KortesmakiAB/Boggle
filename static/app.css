@@ -1,3 +1,85 @@
-img {
+body {
+	color: orangered;
+}
+
+/* header */
+/* Header BG from Erik Kennedy	https://css-tricks.com/creating-non-rectangular-headers/#svg */
+header {
+	position: relative;
+	height: 225px;
+	background-image: linear-gradient(#ff9d2f, #ff6126);
+}
+
+svg {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 10vw;
+	/* set height to pixels if you want angle to change with screen width */
+}
+
+#header-div	{
+	transform: rotate(-6deg);	
+	position: absolute;
+	margin: 40px 20px 20px 20px;
+	top: 3vh;
+	/* margin: 20px; */
+}
+
+#header-div span	{
+	font-family: 'Alfa Slab One', cursive;
+	color: white;
+	font-size: 5rem;
+	letter-spacing: .05ch;
+	padding: 20px;
+	margin: 10px;
+}
+
+#header-div h3 {
+	position: relative;
+	color: white;
+	padding: 15px;
+	font-size: 1.25rem;
+}
+
+/* img {
 	height: 40vh;
+} */
+
+/* game board */
+#board{
+	font-family: 'Alfa Slab One', cursive;
+	font-size: 25px;
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+
+td {
+	height: 35px;
+	width: 35px;
+	text-align: center;
+}
+
+#form-response {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#form-response {
+	align-items: center;
+	height: 30px;
+	margin: 30px;
+}
+
+/* messages and stats */
+#msgs-stats{
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.1rem;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#info-area{
+	margin: 20px;
 }

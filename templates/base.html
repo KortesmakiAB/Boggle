@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/app.css">
-    <title>{% block title %}{% endblock %}</title>
+    <title>Boggle</title>
 </head>
 <body>
     <header>
-        {% block header %}{% endblock %}
+        <div id="header-div">
+            <span>Boggle</span>
+            {% block header %}{% endblock %}
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="white" points="0,100 100,0 100,100"/>
+        </svg>
     </header>
     <main>
-        {% block content %}{% endblock %}
-        <div id="stats">
-            <h4>High Score: {{session['high-score']}}</h4>
-            <h4>Number of Games Played: {{session['num-games']}}</h4>
+        <div>
+            {% block content %}{% endblock %}
         </div>
-        <div id="msg-area" class="hidden"></div>
-        <div id="scored-words" class="hidden">
-            <h4></h4>
-            <ul>
-            </ul>
+        <hr>
+        <div id="msgs-stats">
+            <div id="scored-words">
+                <h4>Current Score: 0</h4>
+                <ul>
+                </ul>
+            </div>
+            <div id="stats">
+                <h4>High Score: {{session['high-score']}}</h4>
+                <h4>Number of Games Played: {{session['num-games']}}</h4>
+            </div>
         </div>
     </main>    
 </body>

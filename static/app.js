@@ -11,12 +11,13 @@ $(document).ready(async function(){
             alert("Time's up!");                  
             // $('body').off('submit', '#word-form', wordForm);
             handleGameEnd(score);
-        }, 10*1000);
+        }, 30*1000);
     }
 });
 
 async function handleGameEnd(score){
     $('#word-form').remove();
+    $msgArea.remove();
     const resp = await axios.post('/play-again', {score: score});
     addPlayAgainButton();
 }
@@ -69,7 +70,7 @@ function displayScoredWords(response){
     const markup = `<li><em>${response.word}</em> - ${response.word.length} points</li>`;
     $scoredWords.children('ul').append(markup);
     updateScore(response);
-    $scoredWords.show();
+    // $scoredWords.show();
 }
 
 function updateScore(response){
