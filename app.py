@@ -15,9 +15,9 @@ boggle_game = Boggle()
 def show_homepage():
     """Display landing page and button to begin game. Set session defaults."""
     
-    session['high-score'] = session.get('high-score', 0)
+    session['high_score'] = session.get('high_score', 0)
         
-    session['num-games'] = session.get('num-games', 0)
+    session['num_games'] = session.get('num_games', 0)
 
     return render_template('index.html')
 
@@ -27,7 +27,7 @@ def handle_game_board():
     """Display game board"""
     
     board = boggle_game.make_board()
-    session['game-board'] = board
+    session['game_board'] = board
 
     return render_template('game-board.html', board=board)
 
@@ -36,11 +36,11 @@ def handle_game_board():
 def check_guesses():
     """Check if a word is a valid word in the dictionary and/or the boggle board", and respond with a message accordingly."""
     
-    guess = request.args.get('word')
-    board = session.get('game-board')
-    message = boggle_game.check_valid_word(board, guess)
+    word = request.args.get('word')
+    board = session.get('game_board')
+    message = boggle_game.check_valid_word(board, word)
 
-    response = {"word": guess, "message": message}
+    response = {"word": word, "message": message}
     return jsonify(response)
 
 
@@ -51,10 +51,10 @@ def play_again():
     NB: JS is not using the return value. Return value could be anything.
     """
     
-    current_high_score = session['high-score']
+    current_high_score = session['high_score']
     score = request.json['score']
-    session['high-score'] = current_high_score if current_high_score > score else score
+    session['high_score'] = current_high_score if current_high_score > score else score
     
-    session['num-games'] = session.get('num-games', 0) + 1
+    session['num_games'] = session.get('num_games', 0) + 1
     
-    return jsonify(session['high-score']) 
+    return jsonify(session['high_score']) 

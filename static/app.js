@@ -11,7 +11,7 @@ $(document).ready(async function(){
             alert("Time's up!");                  
             // $('body').off('submit', '#word-form', wordForm);
             handleGameEnd(score);
-        }, 30*1000);
+        }, 60*1000);
     }
 });
 

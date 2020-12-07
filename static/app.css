@@ -62,16 +62,23 @@ td {
 }
 
 #form-response {
-	display: flex;
-	justify-content: space-evenly;
-}
-
-#form-response {
-	align-items: center;
 	height: 30px;
+	width: 100%;
 	margin: 30px;
+	text-align: center;
 }
 
+#word-form {
+	display: inline-block;
+	width: 50%;
+	left: 0px;
+}
+
+#msg-area {
+	display: inline-block
+	width: 50%;
+	right: 0;
+}
 /* messages and stats */
 #msgs-stats{
 	font-family: 'Roboto', sans-serif;
