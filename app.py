@@ -16,7 +16,6 @@ def show_homepage():
     """Display landing page and button to begin game. Set session defaults."""
     
     session['high_score'] = session.get('high_score', 0)
-        
     session['num_games'] = session.get('num_games', 0)
 
     return render_template('index.html')
@@ -53,8 +52,8 @@ def play_again():
     
     current_high_score = session['high_score']
     score = request.json['score']
+
     session['high_score'] = current_high_score if current_high_score > score else score
-    
     session['num_games'] = session.get('num_games', 0) + 1
     
     return jsonify(session['high_score']) 

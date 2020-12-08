@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 
-<!-- Image by Evgeni Tcherkasski from Pixabay  -->
-<!-- <img src="/static/defeated_white.jpg" alt="Victory and Defeat"> -->
-
 {% block content %}
+<div id="sub-title">
+    <h4>...the game I always lose because my wife always wins</h4>
+</div>
+<div id="img-div">
+    <!-- Image by Evgeni Tcherkasski from Pixabay  -->
+    <img src="/static/defeated_white.jpg" alt="Victory and Defeat">
+</div>
+
+{% endblock %}  
+
+{% block begin_game %}
 <form action="/game-board" id="begin-game">
     <button type="submit">Begin Game</button>
 </form>
+<div id="game-length">
+    (each game is 60 seconds)
+</div>
 {% endblock %}  

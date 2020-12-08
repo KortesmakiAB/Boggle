@@ -2,6 +2,17 @@ body {
 	color: orangered;
 }
 
+button {
+	font-family: 'Roboto', sans-serif;
+	padding: 6px;
+	border-radius: 8px;
+	color: white;
+	font-size: 1.035em;
+	background-image: linear-gradient(#ff9d2f, #ff6126);
+	background-color: #ff9d2f;
+	border: none;
+}
+
 /* header */
 /* Header BG from Erik Kennedy	https://css-tricks.com/creating-non-rectangular-headers/#svg */
 header {
@@ -23,10 +34,9 @@ svg {
 	position: absolute;
 	margin: 40px 20px 20px 20px;
 	top: 3vh;
-	/* margin: 20px; */
 }
 
-#header-div span	{
+#header-div span {
 	font-family: 'Alfa Slab One', cursive;
 	color: white;
 	font-size: 5rem;
@@ -42,17 +52,59 @@ svg {
 	font-size: 1.25rem;
 }
 
-/* img {
-	height: 40vh;
-} */
+/* main container */
+#main-container {
+	display: flex;
+	justify-content: space-evenly;
+	text-align: center;
+}
 
-/* game board */
-#board{
+/* left container */
+#left-container {
+	width: 40vw;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.1em;
+}
+
+ul {
+	list-style: none;
+}
+
+#game-length {
+	margin: 25px;
+	font-size: .8em;
+}
+
+/* right container */
+#right-container {
+	width: 40vw;
+}
+
+#sub-title {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.1em;
+}
+
+#img-div {
+	height: 45vh;
+}
+
+img {
+	max-width:100%;
+	max-height:100%;
+}
+
+/* game board in right container */
+#board {
 	font-family: 'Alfa Slab One', cursive;
 	font-size: 25px;
 	display: flex;
 	justify-content: center;
-	margin: 10px;
+	margin: 25px;
+}
+
+#form-response {
+	margin: 25px
 }
 
 td {
@@ -61,35 +113,6 @@ td {
 	text-align: center;
 }
 
-#form-response {
-	height: 30px;
-	width: 100%;
-	margin: 25px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-
-#word-form {
-	display: inline-block;
-	width: 50%;
-	left: 0px;
-}
-
-#msg-area {
-	display: inline-block
-	width: 50%;
-	right: 0;
-}
-/* messages and stats */
-#msgs-stats{
-	font-family: 'Roboto', sans-serif;
-	font-size: 1.1rem;
-	display: flex;
-	justify-content: space-evenly;
-	margin: 25px;
-}
-
-#info-area{
-	margin: 20px;
+#word {
+	height: 25px;
 }
